@@ -87,22 +87,22 @@ mask.paste(icon, (round(iconoffsetX*screenX+screenX/2), round(iconoffsetY*screen
 # Outline
 mask2 = Image.new('RGBA', (screenX, screenY),(0, 0, 0, 0))
 
-d = 1
+d = 2
 
 mask2.paste(mask, (d, d), mask)
-mask2.paste(mask, (d, -d), mask)
-mask2.paste(mask, (-d, d), mask)
-mask2.paste(mask, (-d, -d), mask)
+#mask2.paste(mask, (d, -d), mask)
+#mask2.paste(mask, (-d, d), mask)
+#mask2.paste(mask, (-d, -d), mask)
 
 mask2.paste(mask, (d, 0), mask)
-mask2.paste(mask, (-d, 0), mask)
+#mask2.paste(mask, (-d, 0), mask)
 mask2.paste(mask, (0, d), mask)
-mask2.paste(mask, (0, -d), mask)
+#mask2.paste(mask, (0, -d), mask)
 
 
 
-wallpaper = Image.composite(invertImg, img, mask2)
-wallpaper = Image.composite(img, wallpaper, mask)
+wallpaper = Image.composite(blackImage, img, mask2)
+wallpaper = Image.composite(solidColorImage, wallpaper, mask)
 wallpaper.save("/tmp/wallpaper.png")
 
 # img.save("/tmp/wallpaper.png")
